@@ -10,9 +10,9 @@
 Pod::Spec.new do |s|
   s.name             = "BRCircularMaskView"
   s.version          = "0.1.0"
-  s.summary          = "A short description of BRCircularMaskView."
+  s.summary          = "A circular mask ."
   s.description      = <<-DESC
-                       An optional longer description of BRCircularMaskView
+                       A circular mask with animation expansion
 
                        * Markdown format.
                        * Don't worry about the indent, we strip it!
