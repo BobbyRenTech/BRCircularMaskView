@@ -43,6 +43,10 @@
     [maskView configure:maskFrame];
 }
 
+-(IBAction)didClickButton:(UIButton *)sender {
+    NSLog(@"Button: %d", sender.tag);
+}
+
 -(IBAction)toggleReveal {
     [maskView reveal];
 }

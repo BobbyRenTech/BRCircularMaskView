@@ -24,10 +24,6 @@
     self.expandableController.view.frame = frame;
     [self.view addSubview:self.expandableController.view];
     [self.expandableController didMoveToParentViewController:self];
-    
-    // disable touch on the controller so that the current controller can still have interaction
-    self.expandableController.view.userInteractionEnabled = false;
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -35,7 +31,6 @@
     
     CGRect maskFrame = CGRectMake(0, 300, 150, 150);
     [self.expandableController addMask:maskFrame];
-//    [self.expandableController configure:maskFrame];
 }
 
 - (void)didReceiveMemoryWarning {

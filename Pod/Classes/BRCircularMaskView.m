@@ -28,6 +28,9 @@
     
     circleFrame = maskFrame;
     self.superview.layer.mask = circleMaskLayer;
+    
+    // once superview is masked, it should not be interactive
+    self.superview.userInteractionEnabled = false;
 }
 
 -(void)layoutSubviews {
@@ -130,6 +133,13 @@
     if (isRevealing) {
         self.superview.layer.mask = nil;
         self.hidden = true;
+        
+        // reenable this view from being able to be clicked
+        self.superview.userInteractionEnabled = true;
+    }
+    else {
+        // prevent masked view from being clickable
+        self.superview.userInteractionEnabled = false;
     }
 }
 

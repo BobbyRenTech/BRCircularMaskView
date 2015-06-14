@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -55,10 +56,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4D-kQ-ACo">
-                                <rect key="frame" x="277" y="20" width="46" height="30"/>
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="WDh-oZ-8Zq"/>
-                                    <constraint firstAttribute="height" constant="30" id="hwn-VK-nhx"/>
+                                    <constraint firstAttribute="width" constant="46" id="sBW-kr-Vgv"/>
                                 </constraints>
                                 <state key="normal" title="Hide">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,11 +68,52 @@
                                     <action selector="toggleReveal" destination="fUx-7J-ZcK" eventType="touchUpInside" id="rJ5-OM-TJB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCo-0V-dOy">
+                                <rect key="frame" x="16" y="94" width="91" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="MNH-ht-5V1"/>
+                                </constraints>
+                                <state key="normal" title="Button 1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickButton:" destination="fUx-7J-ZcK" eventType="touchUpInside" id="Z9C-i6-a11"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ije-TD-fjs">
+                                <rect key="frame" x="16" y="132" width="91" height="30"/>
+                                <state key="normal" title="Button 2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickButton:" destination="fUx-7J-ZcK" eventType="touchUpInside" id="AW9-tF-Q2h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7U8-JK-EWZ">
+                                <rect key="frame" x="16" y="170" width="91" height="30"/>
+                                <state key="normal" title="Button 3">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickButton:" destination="fUx-7J-ZcK" eventType="touchUpInside" id="L0Q-4h-3Zp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.34572882399999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="U4D-kQ-ACo" secondAttribute="centerX" id="RDx-Td-PmV"/>
-                            <constraint firstItem="U4D-kQ-ACo" firstAttribute="top" secondItem="Aq2-uE-pZ2" secondAttribute="bottom" id="xrK-TB-dOZ"/>
+                            <constraint firstItem="7U8-JK-EWZ" firstAttribute="leading" secondItem="ije-TD-fjs" secondAttribute="leading" id="372-F8-kz0"/>
+                            <constraint firstItem="HCo-0V-dOy" firstAttribute="top" secondItem="U4D-kQ-ACo" secondAttribute="bottom" constant="44" id="8Ft-yw-Zub"/>
+                            <constraint firstItem="HCo-0V-dOy" firstAttribute="trailing" secondItem="ije-TD-fjs" secondAttribute="trailing" id="9Ur-if-Cvn"/>
+                            <constraint firstItem="U4D-kQ-ACo" firstAttribute="top" secondItem="Aq2-uE-pZ2" secondAttribute="bottom" id="CEO-cK-8hG"/>
+                            <constraint firstItem="U4D-kQ-ACo" firstAttribute="leading" secondItem="HCo-0V-dOy" secondAttribute="leading" id="MPH-CG-Ppd"/>
+                            <constraint firstItem="HCo-0V-dOy" firstAttribute="leading" secondItem="ije-TD-fjs" secondAttribute="leading" id="MpP-GZ-uQx"/>
+                            <constraint firstItem="7U8-JK-EWZ" firstAttribute="top" secondItem="ije-TD-fjs" secondAttribute="bottom" constant="8" symbolic="YES" id="PA7-xq-o7r"/>
+                            <constraint firstItem="ije-TD-fjs" firstAttribute="trailing" secondItem="7U8-JK-EWZ" secondAttribute="trailing" id="Raw-Om-QOn"/>
+                            <constraint firstItem="7U8-JK-EWZ" firstAttribute="leading" secondItem="0ru-ZM-ufN" secondAttribute="leadingMargin" id="Yjo-8D-aGg"/>
+                            <constraint firstItem="ije-TD-fjs" firstAttribute="top" secondItem="HCo-0V-dOy" secondAttribute="bottom" constant="8" symbolic="YES" id="prH-VZ-SET"/>
                         </constraints>
                     </view>
                 </viewController>

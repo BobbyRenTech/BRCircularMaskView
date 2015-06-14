@@ -23,7 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		AC6CF1641B2DE28F00E7AEF2 /* BRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6CF1631B2DE28F00E7AEF2 /* BRViewController.m */; };
-		AC6CF1671B2DE2F800E7AEF2 /* BRExpandableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6CF1661B2DE2F800E7AEF2 /* BRExpandableViewController.m */; };
+		AC6CF1691B2E1E1700E7AEF2 /* BRExpandableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6CF1681B2E1E1700E7AEF2 /* BRExpandableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,7 @@
 		AC6CF1621B2DE28F00E7AEF2 /* BRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRViewController.h; sourceTree = "<group>"; };
 		AC6CF1631B2DE28F00E7AEF2 /* BRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRViewController.m; sourceTree = "<group>"; };
 		AC6CF1651B2DE2F800E7AEF2 /* BRExpandableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRExpandableViewController.h; sourceTree = "<group>"; };
-		AC6CF1661B2DE2F800E7AEF2 /* BRExpandableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRExpandableViewController.m; sourceTree = "<group>"; };
+		AC6CF1681B2E1E1700E7AEF2 /* BRExpandableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRExpandableViewController.m; sourceTree = "<group>"; };
 		D89A00A387530832208740B3 /* Pods-BRCircularMaskView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRCircularMaskView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BRCircularMaskView_Example/Pods-BRCircularMaskView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9C499B09D6A3D41F0CC323 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		EC71ECE191CED2203E9288C3 /* Pods_BRCircularMaskView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BRCircularMaskView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +151,7 @@
 				AC6CF1621B2DE28F00E7AEF2 /* BRViewController.h */,
 				AC6CF1631B2DE28F00E7AEF2 /* BRViewController.m */,
 				AC6CF1651B2DE2F800E7AEF2 /* BRExpandableViewController.h */,
-				AC6CF1661B2DE2F800E7AEF2 /* BRExpandableViewController.m */,
+				AC6CF1681B2E1E1700E7AEF2 /* BRExpandableViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				AC6CF15D1B2DDFA500E7AEF2 /* BRCircularMaskView_Example-Bridging-Header.h */,
@@ -399,7 +399,7 @@
 			files = (
 				AC6CF1641B2DE28F00E7AEF2 /* BRViewController.m in Sources */,
 				6003F59E195388D20070C39A /* BRAppDelegate.m in Sources */,
-				AC6CF1671B2DE2F800E7AEF2 /* BRExpandableViewController.m in Sources */,
+				AC6CF1691B2E1E1700E7AEF2 /* BRExpandableViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
