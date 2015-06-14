@@ -12,8 +12,11 @@
 {
     CAShapeLayer *circleMaskLayer;
     CGRect circleFrame;
-    CGPathRef fromPath;
-    CGFloat fromLineWidth;
+    CGPathRef originalPath;
+    CGFloat originalLineWidth;
     BOOL isRevealing;
 }
+
+-(void)configure:(CGRect)frame;
+-(void)reveal;
 @end

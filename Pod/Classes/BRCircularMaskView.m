@@ -19,9 +19,10 @@
 */
 
 -(void)configure:(CGRect)maskFrame {
+    circleMaskLayer = [[CAShapeLayer alloc] init];
     circleMaskLayer.frame = self.bounds;
     circleMaskLayer.lineWidth = 2;
-    circleMaskLayer.fillColor = [UIColor whiteColor].CGColor;
+    circleMaskLayer.fillColor = [UIColor blackColor].CGColor;
     circleMaskLayer.strokeColor = [UIColor whiteColor].CGColor;
     self.backgroundColor = [UIColor clearColor];
     
@@ -32,7 +33,11 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     circleMaskLayer.frame = self.bounds;
-    circleMaskLayer.path = [UIBezierPath bezierPathWithOvalInRect:circleFrame].CGPath;
+    circleMaskLayer.path = [self circlePath];
+}
+
+-(CGPathRef)circlePath {
+    return [UIBezierPath bezierPathWithOvalInRect:circleFrame].CGPath;
 }
 
 -(void)reveal {
@@ -54,8 +59,8 @@
         CGPathRef toPath = [UIBezierPath bezierPathWithOvalInRect:outerRect].CGPath;
         
         // 2
-        fromPath = circleMaskLayer.path;
-        fromLineWidth = circleMaskLayer.lineWidth;
+        originalPath = circleMaskLayer.path;
+        originalLineWidth = circleMaskLayer.lineWidth;
         
         // 3
         [CATransaction begin];
@@ -66,10 +71,10 @@
         
         // 4
         CABasicAnimation *lineWidthAnimation = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-        lineWidthAnimation.fromValue = @(fromLineWidth);
+        lineWidthAnimation.fromValue = @(originalLineWidth);
         lineWidthAnimation.toValue = @(2*finalRadius);
         CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-        pathAnimation.fromValue = (__bridge id)fromPath;
+        pathAnimation.fromValue = (__bridge id)originalPath;
         pathAnimation.toValue = (__bridge id)toPath;
         
         // 5
@@ -81,48 +86,43 @@
         [circleMaskLayer addAnimation:groupAnimation forKey:@"strokeWidth"];
     }
     else {
-        /*
-        self.hidden = false
-        backgroundColor = UIColor.clearColor()
+        self.hidden = false;
+        self.backgroundColor = UIColor.clearColor;
         // 2
         // 3
-        circleMaskLayer.removeFromSuperlayer()
-        superview?.layer.mask = circleMaskLayer
+        [circleMaskLayer removeFromSuperlayer];
+        self.superview.layer.mask = circleMaskLayer;
         
-        isRevealing = false
+        isRevealing = false;
         // 1
-        let toPath = self.fromPath
-        let toWidth = self.fromLineWidth
-        
         // 2
-        let fromPath = circleMaskLayer.path
-        let fromLineWidth = circleMaskLayer.lineWidth
+        CGPathRef fromPath = circleMaskLayer.path;
+        CGFloat fromLineWidth = circleMaskLayer.lineWidth;
         
         // 3
-        CATransaction.begin()
-        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        circleMaskLayer.lineWidth = toWidth
-        circleMaskLayer.path = toPath
-        CATransaction.commit()
+        [CATransaction begin];
+        [CATransaction setValue:kCFBooleanTrue forKey: kCATransactionDisableActions];
+        circleMaskLayer.lineWidth = originalLineWidth;
+        circleMaskLayer.path = [self circlePath];
+        [CATransaction commit];
         
         // 4
         // 4
-        let lineWidthAnimation = CABasicAnimation(keyPath: "lineWidth")
-        lineWidthAnimation.fromValue = fromLineWidth
-        lineWidthAnimation.toValue = 0
-        let pathAnimation = CABasicAnimation(keyPath: "path")
-        pathAnimation.fromValue = fromPath
-        pathAnimation.toValue = toPath
+        CABasicAnimation *lineWidthAnimation = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
+        lineWidthAnimation.fromValue = @(fromLineWidth);
+        lineWidthAnimation.toValue = @0;
+        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+        pathAnimation.fromValue = (__bridge id)fromPath;
+        pathAnimation.toValue = (__bridge id)[self circlePath];
         
         // 5
-        let groupAnimation = CAAnimationGroup()
-        groupAnimation.duration = 1
-        groupAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        groupAnimation.animations = [pathAnimation, lineWidthAnimation]
-        groupAnimation.delegate = self
-        groupAnimation.fillMode = kCAFillModeBoth
-        circleMaskLayer.addAnimation(groupAnimation, forKey: "strokeWidth")        
-         */
+        CAAnimationGroup * groupAnimation = [[CAAnimationGroup alloc] init];
+        groupAnimation.duration = 1;
+        groupAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        groupAnimation.animations = @[pathAnimation, lineWidthAnimation];
+        groupAnimation.delegate = self;
+        groupAnimation.fillMode = kCAFillModeBoth;
+        [circleMaskLayer addAnimation:groupAnimation forKey:@"strokeWidth"];
     }
 }
 
