@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'BRCircularMaskView_Example', :exclusive => true do
+  pod "BRCircularMaskView", :path => "../"
+end
+
+target 'BRCircularMaskView_Tests', :exclusive => true do
+  pod "BRCircularMaskView", :path => "../"
+
+  
+end
