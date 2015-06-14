@@ -141,6 +141,9 @@
         // prevent masked view from being clickable
         self.superview.userInteractionEnabled = false;
     }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didFinishAppearAnimation:)]) {
+        [self.delegate didFinishAppearAnimation:isRevealing];
+    }
 }
-
 @end

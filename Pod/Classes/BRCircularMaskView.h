@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BRCircularMaskViewDelegate <NSObject>
+
+-(void)didFinishAppearAnimation:(BOOL)didReveal;
+
+@end
+
 @interface BRCircularMaskView : UIView
 {
     CAShapeLayer *circleMaskLayer;
@@ -16,6 +22,8 @@
     CGFloat originalLineWidth;
     BOOL isRevealing;
 }
+
+@property (weak, nonatomic) id<BRCircularMaskViewDelegate>delegate;
 
 -(void)configure:(CGRect)frame;
 -(void)reveal;
